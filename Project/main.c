@@ -1,6 +1,6 @@
 #include "pbPlots/pbPlots.h"
 #include "pbPlots/supportLib.h"
-
+/*
 int main(){
 	_Bool success;
 	StringReference *errorMessage;
@@ -56,3 +56,4 @@ int main(){
 
 	return success ? 0 : 1;
 }
+*/
