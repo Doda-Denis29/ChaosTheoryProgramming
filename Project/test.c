@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "Config_test.h"
 
 void plot3D() {
     FILE *gnuplotPipe = popen("D:/Programe_proiecte/C/LearningC/ExternalLibs/gnuplot/bin/gnuplot -persistent", "w");
@@ -29,5 +30,6 @@ void plot3D() {
 
 int main() {
     plot3D();
+    testing();
     return 0;
 }
