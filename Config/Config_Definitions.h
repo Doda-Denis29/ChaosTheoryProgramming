@@ -20,8 +20,8 @@
 #define CINT32 const int32_t
 
 //Path definitions to make my life easier
-#define GNUPLOT_EXE "D:/Programe_proiecte/C/LearningC/ExternalLibs/gnuplot/bin/gnuplot -persistent"
-#define INPUT_DAT_FILE_LOCATION "D:/Programe_proiecte/C/LearningC/Output"
+#define GNUPLOT_EXE "D:/Programe_proiecte/C/LearningC/ExternalLibs/gnuplot/bin/gnuplot -persist"
+#define INPUT_DAT_FILE_LOCATION "D:/Programe_proiecte/C/LearningC/Input"
 #define OUTPUT_LOCATION "D:/Programe_proiecte/C/LearningC/Output"
 
 //Error messages

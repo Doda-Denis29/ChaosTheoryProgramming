@@ -6,5 +6,7 @@
 
 CHAR* concatStrings(STRING string1, STRING string2, bool debug);
 void createDatFile(STRING filename);
+void createOutputFile(STRING filename);
+CHAR* getFileNameAndUseIt(STRING filename, STRING baseLocation);
 
 #endif

@@ -1,10 +1,11 @@
 #include "Config_Mathematics.h"
+#include "Config_Functions.h"
 
 void generateLorenzData(STRING filename, DOUBLE dt, INT iterations) {
     FILE* Florenz = fopen(filename, "w");
     if(!Florenz) {
-        printf(ERROR_INIT);
-        return;
+        fprintf(stderr, "%s in %s, at line %d\n", ERROR_INIT, __FILE__, __LINE__);
+        exit(EXIT_FAILURE);
     }
 
     CDOUBLE sigma = 10.0;
@@ -33,34 +34,23 @@ void generateLorenzData(STRING filename, DOUBLE dt, INT iterations) {
 
     fclose(Florenz);
 }
-/*
+
 void drawData3D(STRING datFile, STRING output) {
     FILE *gnuplotPipe = popen(GNUPLOT_EXE, "w");
-    if (gnuplotPipe) {
-        fprintf(gnuplotPipe, "set terminal pngcairo\n");
-        fprintf(gnuplotPipe, "set output %s/%s\n", OUTPUT_LOCATION, output);
-        fprintf(gnuplotPipe, "set xlabel 'X'\n");
-        fprintf(gnuplotPipe, "set ylabel 'Y'\n");
-        fprintf(gnuplotPipe, "set zlabel 'Z'\n");
-        fprintf(gnuplotPipe, "splot  with lines\n");
-
-        for (int x = 0; x < 10; ++x) {
-            for (int y = 0; y < 10; ++y) {
-                double z = x * y;
-                fprintf(gnuplotPipe, "%d %d %f\n", x, y, z);
-            }
-            fprintf(gnuplotPipe, "\n");
-        }
-
-        fprintf(gnuplotPipe, "e\n");
-        fflush(gnuplotPipe);
-        pclose(gnuplotPipe);
-    } else {
-        printf("Could not open GNUplot pipe\n");
+    if (gnuplotPipe == NULL) {
+        fprintf(stderr, "%s in %s, at line %d", ERROR_INIT, __FILE__, __LINE__);
+        exit(EXIT_FAILURE);
     }
-}
 
-nt main() {
-    generateLorenzData("lorenz_data.dat", 0.01, 10000);
-    return 0;
-}*/
+    fprintf(gnuplotPipe, "set title 'Chaos'\n");
+    fprintf(gnuplotPipe, "set output '%s'\n", output);
+    fprintf(gnuplotPipe, "set xlabel 'X'\n");
+    fprintf(gnuplotPipe, "set ylabel 'Y'\n");
+    fprintf(gnuplotPipe, "set zlabel 'Z'\n");
+    fprintf(gnuplotPipe, "splot '%s' using 1:2:3 with lines\n", datFile);
+    fflush(gnuplotPipe);
+
+    pclose(gnuplotPipe);
+
+    printf("Plot generated successfully as '%s'\n", output);
+}
