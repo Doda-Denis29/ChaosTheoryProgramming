@@ -4,7 +4,7 @@ void generateLorenzData(STRING filename, DOUBLE dt, INT iterations) {
     FILE* Florenz = fopen(filename, "w");
     if(!Florenz) {
         printf(ERROR_INIT);
-        return -1;
+        return;
     }
 
     CDOUBLE sigma = 10.0;
@@ -33,9 +33,9 @@ void generateLorenzData(STRING filename, DOUBLE dt, INT iterations) {
 
     fclose(Florenz);
 }
-
+/*
 void drawData3D(STRING datFile, STRING output) {
-    FILE *gnuplotPipe = popen(GNUPLOT_EXE" -persistent", "w");
+    FILE *gnuplotPipe = popen(GNUPLOT_EXE, "w");
     if (gnuplotPipe) {
         fprintf(gnuplotPipe, "set terminal pngcairo\n");
         fprintf(gnuplotPipe, "set output %s/%s\n", OUTPUT_LOCATION, output);
@@ -60,7 +60,7 @@ void drawData3D(STRING datFile, STRING output) {
     }
 }
 
-/*int main() {
+nt main() {
     generateLorenzData("lorenz_data.dat", 0.01, 10000);
     return 0;
 }*/

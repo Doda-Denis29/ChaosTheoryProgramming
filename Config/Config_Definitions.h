@@ -2,11 +2,15 @@
 #define CONFIG_DEFINITIONS_H
 
 #include <stdint.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 //Custom Primitives
 #define INT int
 #define FLOAT float
 #define DOUBLE double
+#define CHAR char
 #define UINT unsigned int
 #define INT32 int32_t
 #define STRING const char*
@@ -16,7 +20,7 @@
 #define CINT32 const int32_t
 
 //Path definitions to make my life easier
-#define GNUPLOT_EXE "D:/Programe_proiecte/C/LearningC/ExternalLibs/gnuplot/bin/gnuplot"
+#define GNUPLOT_EXE "D:/Programe_proiecte/C/LearningC/ExternalLibs/gnuplot/bin/gnuplot -persistent"
 #define INPUT_DAT_FILE_LOCATION "D:/Programe_proiecte/C/LearningC/Output"
 #define OUTPUT_LOCATION "D:/Programe_proiecte/C/LearningC/Output"
 
